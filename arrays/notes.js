@@ -2,6 +2,11 @@
 
 const notes = ["Note 1","Note 2","Note 3"]
 
+//  pop removes last element of array
+console.log(notes.pop())
+
+// push appends element to the end of array
+notes.push("Collect shopping")
 console.log(notes.length)
 
-console.log(notes[0])
+console.log(notes)
