@@ -2,10 +2,16 @@
 
 const notes = ["Note 1","Note 2","Note 3"]
 
-//  pop removes last element of array
+//  Removes the first element from an array and returns it
 console.log(notes.pop())
 
-// push appends element to the end of array
+// Removes the first element from an array and returns it
+notes.shift()
+
+// Inserts new elements at the start of an array.
+notes.unshift("My new first Note")
+
+// Appends new elements to an array, and returns the new length of the array.
 notes.push("Collect shopping")
 console.log(notes.length)
 
