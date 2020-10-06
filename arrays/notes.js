@@ -24,6 +24,19 @@ const notes = ["Note 1","Note 2","Note 3"]
 notes.forEach(function (stuff, num) {
     console.log(`${num} - ${stuff}`)
 })
-console.log(notes.length)
 
+
+console.log(notes.length)
 console.log(notes)
+
+// for (let index = 0; index <= 2; index++) {
+//     console.log(`Counting......${index}`) 
+// }
+
+// for (let index = 0; index < notes.length; index++) {
+//     console.log(`Note: ${notes[index]}`) 
+// }
+
+for (let index = notes.length; index > 0; index--) {
+    console.log(`Note ${index -1}: ${notes[index -1]}`) 
+}
