@@ -1,6 +1,6 @@
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
 
-const notes = ["Note 1","Note 2","Note 3"]
+// const notes = ["Note 1","Note 2","Note 3"]
 
 // //  Removes the first element from an array and returns it
 // console.log(notes.pop())
@@ -21,13 +21,13 @@ const notes = ["Note 1","Note 2","Note 3"]
 
 // notes[0] = "This is now the new Note 1"
 
-notes.forEach(function (stuff, num) {
-    console.log(`${num + 1} - ${stuff}`)
-})
+// notes.forEach(function (stuff, num) {
+//     console.log(`${num + 1} - ${stuff}`)
+// })
 
 
-console.log(notes.length)
-console.log(notes)
+// console.log(notes.length)
+// console.log(notes)
 
 // for (let index = 0; index <= 2; index++) {
 //     console.log(`Counting......${index}`) 
@@ -40,3 +40,43 @@ console.log(notes)
 // for (let index = 0; index < notes.length; index++) {
 //     console.log(`Note ${index + 1}: ${notes[index]}`) 
 // }
+
+const notes = [ {
+    title: "My next trip",
+    body: "I would like to go to Canada"
+}, {
+    title: "Habbits to work on",
+    body: "Exercise, Eating more healthy"
+}, {
+    title: "Office Modifications",
+    body: "Get a new chair"
+}] 
+
+const findNote = function(notes, noteTitle){
+    return notes.find(function(note, index){
+            return note.title.toLowerCase() === noteTitle.toLowerCase()
+    })    
+}
+
+// const findNote = function(notes, noteTitle){
+//     const index = notes.findIndex(function(note, index){
+//             return note.title.toLowerCase() === noteTitle.toLowerCase()
+//     })
+//     if (index != -1){
+//         return notes[index]
+//     } else {
+//         return "Nothing found"
+//     }
+// }
+
+const note = findNote(notes, "office Modifications")
+console.log(note)
+// // console.log(notes.length)
+// // console.log(notes)
+
+// const index = notes.findIndex(function(note, index){
+//     console.log(note)
+//     return note.title === "Habbits to work on"
+// })
+
+// console.log(index)
