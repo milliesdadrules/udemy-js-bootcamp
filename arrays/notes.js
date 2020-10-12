@@ -58,6 +58,16 @@ const findNote = function(notes, noteTitle){
     })    
 }
 
+const findNotes = function(notes, query){
+    return notes.filter(function(note, index){
+        const isTitleMatch = note.title.toLocaleLowerCase().includes(query.toLowerCase())
+        const isBodyMatch = note.body.toLocaleLowerCase().includes(query.toLowerCase())
+        return isTitleMatch || isBodyMatch
+    })
+}
+
+
+console.log(findNotes(notes, "office"))
 // const findNote = function(notes, noteTitle){
 //     const index = notes.findIndex(function(note, index){
 //             return note.title.toLowerCase() === noteTitle.toLowerCase()
@@ -69,8 +79,8 @@ const findNote = function(notes, noteTitle){
 //     }
 // }
 
-const note = findNote(notes, "office Modifications")
-console.log(note)
+// const note = findNote(notes, "office Modifications")
+// console.log(note)
 // // console.log(notes.length)
 // // console.log(notes)
 
