@@ -58,11 +58,11 @@ const findNote = function(notes, noteTitle){
     })    
 }
 
-const findNotes = function(notes, query){
-    return notes.filter(function(note, index){
-        const isTitleMatch = note.title.toLocaleLowerCase().includes(query.toLowerCase())
-        const isBodyMatch = note.body.toLocaleLowerCase().includes(query.toLowerCase())
-        return isTitleMatch || isBodyMatch
+const findNotes = function(notes, query){ // function takes array of objects "notes" and search term "query"
+    return notes.filter(function(note, index){ //callback function use filter method on notes input via findNotes function (index, would return the array index of the element)
+        const isTitleMatch = note.title.toLocaleLowerCase().includes(query.toLowerCase()) // creates a variable to check if the title contains search query
+        const isBodyMatch = note.body.toLocaleLowerCase().includes(query.toLowerCase()) // creates a variable to check if the body contains search query
+        return isTitleMatch || isBodyMatch // returns if title or body return true
     })
 }
 
