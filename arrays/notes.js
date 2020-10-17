@@ -52,6 +52,26 @@ const notes = [ {
     body: "Get a new chair"
 }] 
 
+
+const sortNotes = function(notes){
+    notes.sort(function(a, b){  // a and b are used as holders of objects to compare an sort in order of them to be returned
+        if(a.title.toLowerCase() < b.title.toLowerCase()){
+            return -1 // a to return first return value ="-1"
+        } else if (b.title.toLowerCase() < a.title.toLowerCase()){
+            return 1
+        } else {
+            return 0
+        }
+        
+        
+        
+    })
+}
+
+//sortNotes(notes)
+console.log(notes)
+
+
 const findNote = function(notes, noteTitle){
     return notes.find(function(note, index){
             return note.title.toLowerCase() === noteTitle.toLowerCase()
@@ -67,7 +87,7 @@ const findNotes = function(notes, query){ // function takes array of objects "no
 }
 
 
-console.log(findNotes(notes, "office"))
+// console.log(findNotes(notes, "office"))
 // const findNote = function(notes, noteTitle){
 //     const index = notes.findIndex(function(note, index){
 //             return note.title.toLowerCase() === noteTitle.toLowerCase()
