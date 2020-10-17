@@ -62,9 +62,6 @@ const sortNotes = function(notes){
         } else {
             return 0
         }
-        
-        
-        
     })
 }
 
@@ -72,19 +69,19 @@ const sortNotes = function(notes){
 console.log(notes)
 
 
-const findNote = function(notes, noteTitle){
-    return notes.find(function(note, index){
-            return note.title.toLowerCase() === noteTitle.toLowerCase()
-    })    
-}
+// const findNote = function(notes, noteTitle){
+//     return notes.find(function(note, index){
+//             return note.title.toLowerCase() === noteTitle.toLowerCase()
+//     })    
+// }
 
-const findNotes = function(notes, query){ // function takes array of objects "notes" and search term "query"
-    return notes.filter(function(note, index){ //callback function use filter method on notes input via findNotes function (index, would return the array index of the element)
-        const isTitleMatch = note.title.toLocaleLowerCase().includes(query.toLowerCase()) // creates a variable to check if the title contains search query
-        const isBodyMatch = note.body.toLocaleLowerCase().includes(query.toLowerCase()) // creates a variable to check if the body contains search query
-        return isTitleMatch || isBodyMatch // returns if title or body return true
-    })
-}
+// const findNotes = function(notes, query){ // function takes array of objects "notes" and search term "query"
+//     return notes.filter(function(note, index){ //callback function use filter method on notes input via findNotes function (index, would return the array index of the element)
+//         const isTitleMatch = note.title.toLocaleLowerCase().includes(query.toLowerCase()) // creates a variable to check if the title contains search query
+//         const isBodyMatch = note.body.toLocaleLowerCase().includes(query.toLowerCase()) // creates a variable to check if the body contains search query
+//         return isTitleMatch || isBodyMatch // returns if title or body return true
+//     })
+// }
 
 
 // console.log(findNotes(notes, "office"))
