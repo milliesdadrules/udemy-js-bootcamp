@@ -3,7 +3,7 @@ const todos = [{
     completed: true
 }, {
     text: "practice Piano",
-    completed: true
+    completed: false
 }, {
     text: "Hour of Code",
     completed: false
@@ -24,11 +24,17 @@ const deleteTodo = function(list, text){ // Create function that takes in arguem
     }
     
 }
-console.log(todos)
+// console.log(todos)
+
+const getThingsTodo = function(todos){
+    return todos.filter(function(todoOutstanding,index){
+        return !todoOutstanding.completed
+    })
+}
 
 
-// console.log(getThingsTodo(todos))
+console.log(getThingsTodo(todos))
 
 
-console.log(deleteTodo(todos, "make dinner"))
-console.log(todos)
+// console.log(deleteTodo(todos, "make dinner"))
+// console.log(todos)
