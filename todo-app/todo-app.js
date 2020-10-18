@@ -29,6 +29,8 @@ const summaryIncomplete = document.createElement('h2')
 summaryIncomplete.textContent = `You have ${incompleteTodos.length} todo's left`
 document.querySelector('body').appendChild(summaryIncomplete)
 
+
+// do a forEach on array and conditionally on show incomplete tasks
 todos.forEach(function(task){
     if(!task.completed){
         const newTodo = document.createElement('p')
@@ -42,6 +44,10 @@ document.querySelector("#add-todo").addEventListener("click", function(e){
     console.log("Place holder to add new todo")
 })
 
+// Listen for todo text change
+document.querySelector("#new-todo").addEventListener("input", function(e){
+    console.log(e.target.value)
+})
 
 
 
