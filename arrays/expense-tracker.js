@@ -6,25 +6,36 @@ const account = {
             amount: value
         })
     },
-    expenses: [],
-    getAccountSummary: function(){
-        let balance = 0
-        this.expenses.forEach(function(expense, index){
-            balance = balance + expense.amount
-            console.log(balance)
+    addIncome: function(description, amount){
+        this.income.push({
+            description: description,
+            amount: amount
         })
-        return `The expenses for ${account.name} is \$${balance} in expenses.`
+    },
+    expenses: [],
+    income: [],
+    getAccountSummary: function(){
+        let totalExpenses = 0
+        this.expenses.forEach(function(expense){
+            totalExpenses = totalExpenses + expense.amount
+        })
+        let totalIncome = 0
+        this.income.forEach(function(sale){
+            totalIncome = totalIncome + sale.amount
+        })
+        const balance = totalIncome - totalExpenses
+        return `The expenses for ${account.name} is \$${balance} in expenses. \$${totalIncome} in income. \$${totalExpenses} in expenses.`
     }
 }
 
+account.addIncome("Sales",2000)
+
 account.addExpense("Rent", 900)
 account.addExpense("Food", 100)
-account.addExpense("Travel", 350)
 
 console.log(account.getAccountSummary())
 
 
-console.log(account.expenses)
 //account.getAccountSummary()
 //console.log(account.getAccountSummary())
 
