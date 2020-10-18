@@ -1,15 +1,14 @@
-// DOM - Document Object Model
-// JavaScript "document" object used
+const notes = [ {
+    title: "My next trip",
+    body: "I would like to go to Canada"
+}, {
+    title: "Habbits to work on",
+    body: "Exercise, Eating more healthy"
+}, {
+    title: "Office Modifications",
+    body: "Get a new chair"
+}] 
 
-// Query and remove
-// const p = document.querySelector("p")
-// p.remove()
-
-// query and remove all
-const ps = document.querySelectorAll("p")
-
-ps.forEach(function(p){
-    p.textContent = "***********"
-    // console.log(p.textContent)
-    // p.remove()
+document.querySelector("button").addEventListener("click",function(e){
+    e.target.textContent = "Text changed"
 })
