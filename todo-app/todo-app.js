@@ -15,19 +15,15 @@ const todos = [{
     completed: true
 }]
 
+// create new array filtered on completed value being false (length used to count outstanding tasks)
 const incompleteTodos = todos.filter(function(todo){
     return !todo.completed
 })
 
-// let outstandingTasks = 0
-// todos.forEach(function(task){
-//     if(!task.completed){
-//         outstandingTasks = outstandingTasks + 1
-//     }
-// })
+// 
 const summaryIncomplete = document.createElement('h2')
 summaryIncomplete.textContent = `You have ${incompleteTodos.length} todo's left`
-document.querySelector('body').appendChild(summaryIncomplete)
+document.querySelector('#todo-summary').appendChild(summaryIncomplete)
 
 
 // do a forEach on array and conditionally on show incomplete tasks
@@ -35,7 +31,7 @@ todos.forEach(function(task){
     if(!task.completed){
         const newTodo = document.createElement('p')
         newTodo.textContent = task.text
-        document.querySelector('body').appendChild(newTodo)
+        document.querySelector('#list-todos').appendChild(newTodo)
     }
 })
 
