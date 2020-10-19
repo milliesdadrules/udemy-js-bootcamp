@@ -18,15 +18,27 @@ const todos = [{
 
 // Object to hold search box input
 const todoFilter = {
-    searchText: ""
+    searchText: "",
+    hideCompleted: false
+
 }
 
 // Function to filter todos on search term
 const renderTodos = function(todos,todoFilter){
-    const filteredTodos = todos.filter(function(todo){
-        return todo.text.toLowerCase().includes(todoFilter.searchText.toLowerCase())
+    const  filteredTodos = todos.filter(function(todo){
+        const searchTextMatch = todo.text.toLowerCase().includes(todoFilter.searchText.toLowerCase())
+        const hideCompletedMatch = !todoFilter.hideCompleted || !todo.completed
+        return searchTextMatch && hideCompletedMatch
     })
 
+    // filteredTodos = filteredTodos.filter(function(todo){
+    //     return !todoFilter.hideCompleted || !todo.completed
+    //     // if (todoFilter.hideCompleted){
+    //     //     return !todo.completed
+    //     // } else {
+    //     //     return true
+    //     // }
+    // })
     // create new array filtered on completed value being false (length used to count outstanding tasks)
     const incompleteTodos = filteredTodos.filter(function(todo){
         return !todo.completed
@@ -64,6 +76,11 @@ document.querySelector("#todo-form").addEventListener("submit", function(e){
     })
     renderTodos(todos, todoFilter)
     e.target.elements.newTodo.value= ""
+})
+
+document.querySelector("#hide-complete").addEventListener("change", function(e){
+     todoFilter.hideCompleted = e.target.checked
+     renderTodos(todos,todoFilter)
 })
 
 
