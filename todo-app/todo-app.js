@@ -15,18 +15,33 @@ const todos = [{
     completed: true
 }]
 
-// 
+
+// Object to hold search box input
 const todoFilter = {
-    todoSearch: ""
+    searchText: ""
 }
 
+// Function to filter todos on search term
 const renderTodos = function(todos,todoFilter){
     const filteredTodos = todos.filter(function(todo){
-        return todo.text.toLowerCase().includes(todoFilter.todoSearch.toLowerCase())
+        return todo.text.toLowerCase().includes(todoFilter.searchText.toLowerCase())
     })
-    console.log(filteredTodos)
+
+    // create new array filtered on completed value being false (length used to count outstanding tasks)
+    const incompleteTodos = filteredTodos.filter(function(todo){
+        return !todo.completed
+    })
+    document.querySelector('#todo-summary').innerHTML = ""
+    // Display summary of filtered outstanding tasks
+    const summaryIncomplete = document.createElement('h2')
+    summaryIncomplete.textContent = `You have ${incompleteTodos.length} todo's left`
+    document.querySelector('#todo-summary').appendChild(summaryIncomplete)
+
+    // clear the div #list-todos
+
     document.querySelector("#list-todos").innerHTML = ""
 
+    // loop search filtered array of todos display in div #list-todos
     filteredTodos.forEach(function(todo){
         const todoResult = document.createElement("p")
         todoResult.textContent = todo.text
@@ -36,20 +51,11 @@ const renderTodos = function(todos,todoFilter){
 }
 renderTodos(todos,todoFilter)
 
-const searchTodos = document.querySelector("#search-todos").addEventListener("input", function(e){
-    todoFilter.todoSearch = e.target.value
-    // console.log(todoFilter.todoSearch)
+document.querySelector("#search-todos").addEventListener("input", function(e){
+    todoFilter.searchText = e.target.value
     renderTodos(todos,todoFilter)
 })
-// create new array filtered on completed value being false (length used to count outstanding tasks)
-const incompleteTodos = todos.filter(function(todo){
-    return !todo.completed
-})
 
-// Display summary of outstanding tasks
-const summaryIncomplete = document.createElement('h2')
-summaryIncomplete.textContent = `You have ${incompleteTodos.length} todo's left`
-document.querySelector('#todo-summary').appendChild(summaryIncomplete)
 
 
 // do a forEach on array and conditionally on show incomplete tasks
