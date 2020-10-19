@@ -56,34 +56,15 @@ document.querySelector("#search-todos").addEventListener("input", function(e){
     renderTodos(todos,todoFilter)
 })
 
-
-
-// do a forEach on array and conditionally on show incomplete tasks
-// todos.forEach(function(task){
-//     if(!task.completed){
-//         const newTodo = document.createElement('p')
-//         newTodo.textContent = task.text
-//         document.querySelector('#list-todos').appendChild(newTodo)
-//     }
-// })
-
-// Listen for new todo creation
-document.querySelector("#add-todo").addEventListener("click", function(e){
-    console.log("Place holder to add new todo")
-})
-
-// Listen for todo text change
-document.querySelector("#new-todo").addEventListener("input", function(e){
-    console.log(e.target.value)
+document.querySelector("#todo-form").addEventListener("submit", function(e){
+    e.preventDefault()
+    todos.push({
+        text: e.target.elements.newTodo.value,
+        completed: false
+    })
+    renderTodos(todos, todoFilter)
+    e.target.elements.newTodo.value= ""
 })
 
 
 
-
-// const paragraphs = document.querySelectorAll("p")
-// paragraphs.forEach(function(paragraph){
-//     if(paragraph.textContent.includes("the")){
-//         paragraph.remove()
-//     }
-
-// })

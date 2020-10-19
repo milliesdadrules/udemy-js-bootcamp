@@ -1,17 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Todo Application</title>
-</head>
+<head><title>Todo Application</title></head>
 <body>
     <h1>Todo Application</h1>
-    <input type="text" id="new-todo" placeholder="Enter something to do">
-    <button id="add-todo">Add Todo</button>
-    <p><input type="text" id="search-todos" placeholder="Filter Todos"></p>
+    <input type="text" id="search-todos" placeholder="Filter Todos">
     <div id="todo-summary"></div>
     <div id="list-todos"></div>
+    <form id="todo-form">
+        <input type="text" placeholder="Enter new todo" name="newTodo">
+        <button>Add Todo</button>
+    </form>
     <script src="todo-app.js"></script>
 </body>
 </html>
