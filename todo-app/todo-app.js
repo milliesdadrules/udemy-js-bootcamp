@@ -1,19 +1,11 @@
-const todos = [{
-    text: "Tidy Room",
-    completed: false
-}, {
-    text: "practice Piano",
-    completed: false
-}, {
-    text: "Hour of Code",
-    completed: false
-}, {
-    text: "Make Dinner",
-    completed: true
-}, {
-    text: "Clean Fish Tank",
-    completed: true
-}]
+let todos = []
+
+
+const todosJSON = localStorage.getItem("todos")
+
+if(todosJSON !== null) {
+    todos = JSON.parse(todosJSON)
+} 
 
 
 // Object to hold search box input
@@ -23,6 +15,7 @@ const todoFilter = {
 
 }
 
+ 
 // Function to filter todos on search term
 const renderTodos = function(todos,todoFilter){
     const  filteredTodos = todos.filter(function(todo){
@@ -74,6 +67,7 @@ document.querySelector("#todo-form").addEventListener("submit", function(e){
         text: e.target.elements.newTodo.value,
         completed: false
     })
+    localStorage.setItem("todos",JSON.stringify(todos))
     renderTodos(todos, todoFilter)
     e.target.elements.newTodo.value= ""
 })
