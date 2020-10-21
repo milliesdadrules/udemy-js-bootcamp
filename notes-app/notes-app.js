@@ -1,39 +1,12 @@
-let notes = [] 
+const notes = getSavedNotes()
 
 // filter object to hold search box content on change
 const filters = {
     searchText: ""
 }
 
-// Check for existing saved data
-const notesJSON = localStorage.getItem("notes")
-if(notesJSON !== null){
-    notes = JSON.parse(notesJSON)
-    console.log("LS NULL")
-}
-
-
 //console.log(userJSON)
-// function to filter notes array with includes from filters object.seatchText value
-const renderNotes = function(notes, filters){
-    const filteredNotes = notes.filter(function(note){
-        return note.title.toLowerCase().includes(filters.searchText.toLowerCase())
-    })
 
-    // delete div #notes contents when funcation is called
-    document.querySelector("#notes").innerHTML = ""
-
-    // filter filteredNotes object and append to div #notes 
-    filteredNotes.forEach(function(note){
-        const showNote = document.createElement('p')
-        if(note.title.length > 0){
-            showNote.textContent = note.title
-        }else {
-            showNote.textContent = "Unnamed note"
-        }
-        document.querySelector("#notes").appendChild(showNote)
-    })
-}
 
 // Initally renter the collection of notes with empty filer
 renderNotes(notes, filters)
