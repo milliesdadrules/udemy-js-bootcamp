@@ -9,6 +9,11 @@ const getSavedNotes = function(){
 }
 
 
+// Save the notes to local storage
+const saveNotes = function(notes){
+    localStorage.setItem("notes", JSON.stringify(notes))
+}
+
 // Generate the DOM structure
 const generateNoteDOM = function(note){
     const showNote = document.createElement('p')
