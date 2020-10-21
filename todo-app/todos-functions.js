@@ -20,28 +20,28 @@ const renderTodos = function(todos,todoFilter){
         const hideCompletedMatch = !todoFilter.hideCompleted || !todo.completed
         return searchTextMatch && hideCompletedMatch
     })
-    
+
     const incompleteTodos = filteredTodos.filter(function(todo){
         return !todo.completed
     })
 
     document.querySelector('#todo-summary').innerHTML = ""
-    generateSummaryDOM(incompleteTodos)
+    document.querySelector('#todo-summary').appendChild(generateSummaryDOM(incompleteTodos))
     document.querySelector("#list-todos").innerHTML = ""
 
     filteredTodos.forEach(function(todo){
-        generateTodoDOM(todo)
+        document.querySelector("#list-todos").appendChild(generateTodoDOM(todo))
     })
 }
 
 const generateTodoDOM = function(todo){
     const todoResult = document.createElement("p")
     todoResult.textContent = todo.text
-    document.querySelector("#list-todos").appendChild(todoResult)
+    return todoResult
 }
 
 const generateSummaryDOM = function(incompleteTodos){
     const summaryIncomplete = document.createElement('h2')
     summaryIncomplete.textContent = `You have ${incompleteTodos.length} todo's left`
-    document.querySelector('#todo-summary').appendChild(summaryIncomplete)
+    return summaryIncomplete
 }
