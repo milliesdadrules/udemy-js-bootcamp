@@ -1,3 +1,4 @@
+console.log(uuidv4())
 // Read existing notes from localStorage
 const getSavedNotes = function(){
     const notesJSON = localStorage.getItem("notes")
@@ -19,7 +20,6 @@ const generateNoteDOM = function(note){
     const showNote = document.createElement('div')
     const textEl = document.createElement("span")
     const button = document.createElement("button") 
-
     // Setup the remove button
     button.textContent = "x"
     showNote.appendChild(button)
