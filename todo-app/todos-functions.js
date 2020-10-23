@@ -9,9 +9,28 @@ const getTodos = function(){
 
 }
 
+const toggleTodo = function(id){
+    const todo = todos.find(function(todo){
+        return todo.id === id
+    })
+    if(todo !== undefined){
+        todo.completed = !todo.completed
+    }
+}
+
 // Save todos to localStorage
 const saveTodos = function(todos){
     localStorage.setItem("todos",JSON.stringify(todos))
+}
+
+const removeTodo = function(id){
+    const todoIndex = todos.findIndex(function(todo){
+        
+        return todo.id == id
+    })
+    if(todoIndex > -1){
+        todos.splice(todoIndex,1)
+    }
 }
 
 const renderTodos = function(todos,todoFilter){
@@ -38,11 +57,29 @@ const generateTodoDOM = function(todo){
     const listTodos = document.createElement("div")
     const checkTodo = document.createElement("input")
     checkTodo.setAttribute("type","checkbox")
+    checkTodo.checked = todo.completed
+
+    checkTodo.addEventListener("change",function(){
+        toggleTodo(todo.id)
+        // if(todo.completed){
+        //     todo.completed = false
+        // } else {
+        //     todo.completed = true
+        // }
+        saveTodos(todos)
+        renderTodos(todos,todoFilter)
+    })
+
 
     const todoResult = document.createElement("span")
     
     const delButton = document.createElement("button")
     delButton.textContent = "x"
+    delButton.addEventListener("click", function(){
+        removeTodo(todo.id)
+        saveTodos(todos)
+        renderTodos(todos,todoFilter)
+    })
 
     listTodos.appendChild(checkTodo)
     todoResult.textContent = todo.text
