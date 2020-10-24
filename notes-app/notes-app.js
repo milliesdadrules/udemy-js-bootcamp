@@ -11,13 +11,14 @@ const filters = {
 // Initally renter the collection of notes with empty filer
 renderNotes(notes, filters)
 document.querySelector("#create-note").addEventListener("click",function(e){
+    const noteID = uuidv4()
     notes.push({
-        id: uuidv4(),
+        id: noteID,
         title: "",
         body: ""
     })
     saveNotes(notes)
-    renderNotes(notes, filters)
+    location.assign(`/edit.html#${noteID}`)
 })
 
 // chech search-text box for input
