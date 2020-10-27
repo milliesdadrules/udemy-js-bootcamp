@@ -49,5 +49,10 @@ window.addEventListener("storage",function(e){
 //     console.log(`${dateTwo.toString()}`)
 // }
 
+// const now = moment("1972-12-18")
 const now = moment()
-console.log(now.toString())
+now.date(18).year(1972).month("December")
+//now.month(0)
+//console.log(now)
+
+console.log(now.format('MMMM D, YYYY'))
