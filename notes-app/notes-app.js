@@ -1,14 +1,11 @@
-const notes = getSavedNotes()
+let notes = getSavedNotes()
 
 // filter object to hold search box content on change
 const filters = {
     searchText: ""
 }
 
-//console.log(userJSON)
-
-
-// Initally renter the collection of notes with empty filer
+// Initally renter the collection of notes with empty filter
 renderNotes(notes, filters)
 document.querySelector("#create-note").addEventListener("click",function(e){
     const noteID = uuidv4()
@@ -33,3 +30,21 @@ document.querySelector("#search-text").addEventListener("input", function(e){
 document.querySelector("#filter-by").addEventListener("change",function(e){
     console.log(e.target.value)
 })
+
+window.addEventListener("storage",function(e){
+    if(e.key === 'notes'){
+        notes = JSON.parse(e.newValue)
+        renderNotes(notes, filters)
+    }
+})
+
+const dateOne = new Date("December 18 2020 12:00:00")
+const dateTwo = new Date()
+const dateOneTimestamp = dateOne.getTime()
+const dateTwoTimestamp = dateTwo.getTime()
+
+if(dateOneTimestamp < dateTwoTimestamp){
+    console.log(`${dateOne.toString()}`)
+} else if (dateTwoTimestamp < dateOneTimestamp){
+    console.log(`${dateTwo.toString()}`)
+}
