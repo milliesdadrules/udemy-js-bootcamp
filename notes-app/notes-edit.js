@@ -46,3 +46,4 @@ window.addEventListener("storage", function(e){
         bodyElement.value = note.body
     }
 })
+

@@ -38,13 +38,16 @@ window.addEventListener("storage",function(e){
     }
 })
 
-const dateOne = new Date("December 18 2020 12:00:00")
-const dateTwo = new Date()
-const dateOneTimestamp = dateOne.getTime()
-const dateTwoTimestamp = dateTwo.getTime()
+// const dateOne = new Date("December 18 2020 12:00:00")
+// const dateTwo = new Date()
+// const dateOneTimestamp = dateOne.getTime()
+// const dateTwoTimestamp = dateTwo.getTime()
 
-if(dateOneTimestamp < dateTwoTimestamp){
-    console.log(`${dateOne.toString()}`)
-} else if (dateTwoTimestamp < dateOneTimestamp){
-    console.log(`${dateTwo.toString()}`)
-}
+// if(dateOneTimestamp < dateTwoTimestamp){
+//     console.log(`${dateOne.toString()}`)
+// } else if (dateTwoTimestamp < dateOneTimestamp){
+//     console.log(`${dateTwo.toString()}`)
+// }
+
+const now = moment()
+console.log(now.toString())
