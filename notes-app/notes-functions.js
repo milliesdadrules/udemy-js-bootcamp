@@ -52,6 +52,12 @@ const generateNoteDOM = function(note){
     return showNote
 }
 
+
+// sort you notes by one of three ways
+const sortNotes = function(){
+
+}
+
 // function to filter notes array with includes from filters object.seatchText value
 const renderNotes = function(notes, filters){
     const filteredNotes = notes.filter(function(note){

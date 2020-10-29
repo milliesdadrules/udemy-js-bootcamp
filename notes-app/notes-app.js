@@ -2,7 +2,8 @@ let notes = getSavedNotes()
 
 // filter object to hold search box content on change
 const filters = {
-    searchText: ""
+    searchText: "",
+    sortBy: "byEdited"
 }
 
 // Initally renter the collection of notes with empty filter
@@ -28,7 +29,8 @@ document.querySelector("#search-text").addEventListener("input", function(e){
 })
 
 document.querySelector("#filter-by").addEventListener("change",function(e){
-    console.log(e.target.value)
+    filter.sortBy = e.target.value
+    renderNotes(notes,filters)
 })
 
 window.addEventListener("storage",function(e){
