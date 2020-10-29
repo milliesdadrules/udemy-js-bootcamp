@@ -37,22 +37,3 @@ window.addEventListener("storage",function(e){
         renderNotes(notes, filters)
     }
 })
-
-// const dateOne = new Date("December 18 2020 12:00:00")
-// const dateTwo = new Date()
-// const dateOneTimestamp = dateOne.getTime()
-// const dateTwoTimestamp = dateTwo.getTime()
-
-// if(dateOneTimestamp < dateTwoTimestamp){
-//     console.log(`${dateOne.toString()}`)
-// } else if (dateTwoTimestamp < dateOneTimestamp){
-//     console.log(`${dateTwo.toString()}`)
-// }
-
-// const now = moment("1972-12-18")
-const now = moment()
-now.date(18).year(1972).month("December")
-//now.month(0)
-//console.log(now)
-
-console.log(now.format('MMMM D, YYYY'))
