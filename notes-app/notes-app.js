@@ -1,4 +1,6 @@
 let notes = getSavedNotes()
+const timestamp = moment().valueOf()
+
 
 // filter object to hold search box content on change
 const filters = {
@@ -13,7 +15,9 @@ document.querySelector("#create-note").addEventListener("click",function(e){
     notes.push({
         id: noteID,
         title: "",
-        body: ""
+        body: "",
+        createdAt: timestamp,
+        updatedAt: timestamp
     })
     saveNotes(notes)
     location.assign(`/edit.html#${noteID}`)

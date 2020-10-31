@@ -28,9 +28,7 @@ const removeNote = function(noteID){
 const generateNoteDOM = function(note){
     const showNote = document.createElement('div')
     const textEl = document.createElement("a")
-    textEl.href = `/edit.html#${note.id}`
-    //textEl.i
-    
+    textEl.href = `/edit.html#${note.id}`    
  
     const button = document.createElement("button") 
     // Setup the remove button
@@ -52,7 +50,6 @@ const generateNoteDOM = function(note){
     return showNote
 }
 
-
 // sort you notes by one of three ways
 const sortNotes = function(){
 
@@ -72,4 +69,8 @@ const renderNotes = function(notes, filters){
         const showNote = generateNoteDOM(note)
         document.querySelector("#notes").appendChild(showNote)
     })
+}
+
+const getLastEdited = function(note){
+    return `Last updated ${moment(note.updatedAt).fromNow()}`
 }
