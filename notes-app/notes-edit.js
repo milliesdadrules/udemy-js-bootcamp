@@ -7,7 +7,6 @@ const noteID = location.hash.substring(1)
 let notes = getSavedNotes()
 
 
-
 let note = notes.find(function(note){
     return note.id === noteID
 })
