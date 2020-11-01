@@ -10,7 +10,7 @@ const filters = {
 
 // Initally renter the collection of notes with empty filter
 renderNotes(notes, filters)
-document.querySelector("#create-note").addEventListener("click",function(e){
+document.querySelector("#create-note").addEventListener("click",(e) => {
     const noteID = uuidv4()
     notes.push({
         id: noteID,
@@ -24,7 +24,7 @@ document.querySelector("#create-note").addEventListener("click",function(e){
 })
 
 // chech search-text box for input
-document.querySelector("#search-text").addEventListener("input", function(e){
+document.querySelector("#search-text").addEventListener("input", (e) => {
     // console.log(e.target.value)
     // update filters object, seatchText with inout box value
     filters.searchText = e.target.value
@@ -32,13 +32,13 @@ document.querySelector("#search-text").addEventListener("input", function(e){
     renderNotes(notes, filters)
 })
 
-document.querySelector("#filter-by").addEventListener("change",function(e){
+document.querySelector("#filter-by").addEventListener("change",(e) => {
     filters.sortBy = e.target.value
     console.log(filters.sortBy);
     renderNotes(notes,filters)
 })
 
-window.addEventListener("storage",function(e){
+window.addEventListener("storage",(e) => {
     if(e.key === 'notes'){
         notes = JSON.parse(e.newValue)
         renderNotes(notes, filters)

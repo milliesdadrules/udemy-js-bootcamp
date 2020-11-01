@@ -7,9 +7,7 @@ const noteID = location.hash.substring(1)
 let notes = getSavedNotes()
 
 
-let note = notes.find(function(note){
-    return note.id === noteID
-})
+let note = notes.find((note) => note.id === noteID)
 
 if(note === undefined){
     location.assign("/index.html")
@@ -22,32 +20,30 @@ editedElement.textContent = `Last updated ${moment(note.updatedAt).fromNow()}`
 
 console.log(note.updatedAt)
 
-titleElement.addEventListener("input", function(e){
+titleElement.addEventListener("input", (e) => {
     note.title = e.target.value
     editedElement.textContent = getLastEdited(note)
     note.updatedAt = moment().valueOf()
     saveNotes(notes)
 })
 
-bodyElement.addEventListener("input", function(e){
+bodyElement.addEventListener("input", (e) => {
     note.body = e.target.value
     editedElement.textContent = getLastEdited(note)
     note.updatedAt = moment().valueOf()
     saveNotes(notes)
 })
 
-removeElement.addEventListener("click", function(e){
+removeElement.addEventListener("click", (e) => {
     removeNote(note.id)
     saveNotes(notes)
     location.assign("/index.html")
 })
 
-window.addEventListener("storage", function(e){
+window.addEventListener("storage", (e) => {
     if(e.key === 'notes'){
         notes = JSON.parse(e.newValue)
-        note = notes.find(function(note){
-            return note.id === noteID
-        })
+        note = notes.find((note) => note.id === noteID)
         
         if(note === undefined){
             location.assign("/index.html")
