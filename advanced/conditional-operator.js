@@ -2,13 +2,14 @@
 // const message = myAge >= 18 ? "You can vote!" : "You cannot vote"
 // console.log(message)
 
-const myAge = 20
+const myAge = 47
 const showPage = () => {
-    console.log("showing the page");
+    return "showing the page"
 }
 
 const showErrorPage = () => {
-    console.log("showing the error page");
+    return "showing the error page"
 }
 
-myAge >= 47 ? showPage() : showErrorPage()
+const message = myAge >= 47 ? showPage() : showErrorPage()
+console.log(message);
