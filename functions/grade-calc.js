@@ -1,5 +1,10 @@
 // studentScore, possibleScore
 let grades = function(studentScore, possibleScore){
+    if(typeof studentScore !== "number" || typeof possibleScore !== "number"){
+        
+        throw Error("studentScore and possibleScore should be typeof number")
+    }
+
     let percent = (studentScore / possibleScore) * 100
     let grade
     if (percent >= 90 && percent <=100) {
@@ -14,6 +19,13 @@ let grades = function(studentScore, possibleScore){
         grade = "F"
     }
     return `You scored ${studentScore} out of ${possibleScore}.\n${percent}% is a grade of ${grade}.`
-}
 
-console.log(grades(10,20))
+} 
+
+
+try {
+    console.log(grades(15,"20"))
+} catch (e) {
+    console.log("The catch block is running")
+    console.log(e.message)
+}
