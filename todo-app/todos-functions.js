@@ -1,3 +1,5 @@
+"use strict"
+
 // Read todos from localStorage
 const getTodos = () =>{
     const todosJSON = localStorage.getItem("todos")
