@@ -1,6 +1,6 @@
-const Hangman = function (word,guesses) {
+const Hangman = function (word,remainingGuesses) {
     this.word = word,
-    this.guesses = guesses
+    this.remainingGuesses = remainingGuesses
 }
 
 const game = new Hangman("Cat",5)
