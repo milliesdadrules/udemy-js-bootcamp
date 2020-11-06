@@ -20,5 +20,5 @@ Hangman.prototype.getPuzzle = function(){
 const game = new Hangman("Trolls 2",5)
 console.log(game.getPuzzle());
 
-// const game2 = new Hangman("James Bond",9)
-// console.log(game2);
+const game2 = new Hangman("James Bond",9)
+console.log(game2.getPuzzle());
