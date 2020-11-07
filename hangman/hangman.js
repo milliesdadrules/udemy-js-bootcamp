@@ -29,14 +29,17 @@ Hangman.prototype.getPuzzle = function(){
     })
     return puzzle
 }
-const game = new Hangman("Cat",2)
-game.makeGuess("c")
-game.makeGuess("t")
-game.makeGuess("y")
-console.log(game.getPuzzle());
-console.log(`You have ${game.remainingGuesses} remaining.`);
 
-const game2 = new Hangman("New Jersey",4)
-game2.makeGuess("w")
-console.log(game2.getPuzzle());
-console.log(`You have ${game2.remainingGuesses} remaining.`);
+// Hangman.prototype.generateDOM = function(){
+//     const hangmanBoard = document.querySelector("#hangman-board")
+//     const word = document.createElement("span")
+//     const space = document.createElement("p")
+//     const guesses = document.createElement("span")
+//     hangmanBoard.innerHTML = ""
+//     word.textContent = this.getPuzzle()
+//     guesses.textContent = `You have ${this.remainingGuesses} remaining.`
+//     hangmanBoard.appendChild(word)
+//     hangmanBoard.appendChild(space)
+//     hangmanBoard.appendChild(guesses)
+// }
+
