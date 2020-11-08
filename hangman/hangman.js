@@ -2,18 +2,44 @@ const Hangman = function (word,remainingGuesses) {
     this.word = word.toLowerCase().split("")
     this.lettersGuessed = []
     this.remainingGuesses = remainingGuesses
+    this.status = "Playing"
+}
+
+Hangman.prototype.getGameState = function(){
+    let finished = true
+
+    this.word.forEach((letter) => {
+        //console.log(`Word Array letter: ${letter}`);
+        console.log(`${this.lettersGuessed} includes ${letter} = ${this.lettersGuessed.includes(letter)}`);
+        if(this.lettersGuessed.includes(letter)){
+            console.log(`found : ${finished}`);
+        } else {
+            console.log(`setting to false`);
+            finished = false
+        }
+    })
+    console.log(finished)
+    if(!this.remainingGuesses){
+        this.status = "Failed"
+    } else if (finished){
+        this.status = "Finished"
+    } else {
+        this.status = "Playing"
+    }
+
 }
 
 Hangman.prototype.makeGuess = function(guess){
     guess = guess.toLowerCase()
     const isUnique = !this.lettersGuessed.includes(guess)
-    const isBadGuess =  !this.word.includes(guess)
+    const isBadGuess = !this.word.includes(guess)
     if(isUnique){
         this.lettersGuessed.push(guess)
     }
     if(isUnique && isBadGuess){
         this.remainingGuesses--
     }
+    this.getGameState()
 }
 
 Hangman.prototype.getPuzzle = function(){
@@ -29,6 +55,7 @@ Hangman.prototype.getPuzzle = function(){
     })
     return puzzle
 }
+
 
 // Hangman.prototype.generateDOM = function(){
 //     const hangmanBoard = document.querySelector("#hangman-board")
