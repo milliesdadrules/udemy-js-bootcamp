@@ -1,4 +1,4 @@
-const game = new Hangman("Cat",5)
+const game = new Hangman("Rocky Three",5)
 const wordEl = document.querySelector("#word")
 const guessesEl = document.querySelector("#guesses")
 console.log(game.status)

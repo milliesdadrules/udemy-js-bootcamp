@@ -6,18 +6,31 @@ const Hangman = function (word,remainingGuesses) {
 }
 
 Hangman.prototype.getGameState = function(){
-    let finished = true
 
-    this.word.forEach((letter) => {
-        //console.log(`Word Array letter: ${letter}`);
-        console.log(`${this.lettersGuessed} includes ${letter} = ${this.lettersGuessed.includes(letter)}`);
-        if(this.lettersGuessed.includes(letter)){
-            console.log(`found : ${finished}`);
-        } else {
-            console.log(`setting to false`);
-            finished = false
-        }
+    // This creates a new array of letters from the "word" that haven't been guessed
+    // const lettersUnguessed = this.word.filter((letter) => {
+    //     return !this.lettersGuessed.includes(letter)
+    // })
+    // console.log(lettersUnguessed);
+    // const finished = lettersUnguessed.length === 0
+    // let finished = true
+
+    // this.word.forEach((letter) => {
+    //     //console.log(`Word Array letter: ${letter}`);
+    //     console.log(`${this.lettersGuessed} includes ${letter} = ${this.lettersGuessed.includes(letter)}`);
+    //     if(this.lettersGuessed.includes(letter) || letter === " "){
+    //         console.log(`found : ${finished}`);
+    //     } else {
+    //         console.log(`setting to false`);
+    //         finished = false
+    //     }
+    // })
+
+    const finished = this.word.every((letter) => {
+        console.log(`${this.lettersGuessed} check for letter ${letter} = ${this.lettersGuessed.includes(letter)}`);
+        return this.lettersGuessed.includes(letter) || letter === " "
     })
+
     console.log(finished)
     if(!this.remainingGuesses){
         this.status = "Failed"
@@ -55,18 +68,4 @@ Hangman.prototype.getPuzzle = function(){
     })
     return puzzle
 }
-
-
-// Hangman.prototype.generateDOM = function(){
-//     const hangmanBoard = document.querySelector("#hangman-board")
-//     const word = document.createElement("span")
-//     const space = document.createElement("p")
-//     const guesses = document.createElement("span")
-//     hangmanBoard.innerHTML = ""
-//     word.textContent = this.getPuzzle()
-//     guesses.textContent = `You have ${this.remainingGuesses} remaining.`
-//     hangmanBoard.appendChild(word)
-//     hangmanBoard.appendChild(space)
-//     hangmanBoard.appendChild(guesses)
-// }
 
