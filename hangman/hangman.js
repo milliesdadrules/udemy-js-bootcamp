@@ -26,12 +26,8 @@ Hangman.prototype.getGameState = function(){
     //     }
     // })
 
-    const finished = this.word.every((letter) => {
-        console.log(`${this.lettersGuessed} check for letter ${letter} = ${this.lettersGuessed.includes(letter)}`);
-        return this.lettersGuessed.includes(letter) || letter === " "
-    })
+    const finished = this.word.every((letter) => this.lettersGuessed.includes(letter) || letter === " ")
 
-    console.log(finished)
     if(!this.remainingGuesses){
         this.status = "Failed"
     } else if (finished){
@@ -39,7 +35,6 @@ Hangman.prototype.getGameState = function(){
     } else {
         this.status = "Playing"
     }
-
 }
 
 Hangman.prototype.makeGuess = function(guess){
@@ -68,4 +63,18 @@ Hangman.prototype.getPuzzle = function(){
     })
     return puzzle
 }
+
+
+// Hangman.prototype.generateDOM = function(){
+//     const hangmanBoard = document.querySelector("#hangman-board")
+//     const word = document.createElement("span")
+//     const space = document.createElement("p")
+//     const guesses = document.createElement("span")
+//     hangmanBoard.innerHTML = ""
+//     word.textContent = this.getPuzzle()
+//     guesses.textContent = `You have ${this.remainingGuesses} remaining.`
+//     hangmanBoard.appendChild(word)
+//     hangmanBoard.appendChild(space)
+//     hangmanBoard.appendChild(guesses)
+// }
 
