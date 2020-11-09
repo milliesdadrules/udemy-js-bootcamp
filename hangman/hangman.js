@@ -32,7 +32,7 @@ class Hangman {
             this.getGameState()
         }
     }
-    getPuzzle(){
+    get puzzle(){
         let puzzle = ""
         this.word.forEach((letter) => {
     
@@ -45,7 +45,7 @@ class Hangman {
         })
         return puzzle
     }
-    getMessage(){
+    get statusMessage(){
         let message
         if(this.status === "Playing"){
             message = `Playing -> Guesses left: ${this.remainingGuesses}`
