@@ -10,5 +10,4 @@ window.addEventListener("keypress", (e) => {
     game.makeGuess(guess)
     wordEl.textContent = game.getPuzzle()
     statusEl.textContent = game.getMessage()
-    console.log(game.getMessage());
 })
