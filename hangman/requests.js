@@ -21,7 +21,7 @@ const getCountry = (countryCode, callback) => {
         if(e.target.readyState === 4 && e.target.status === 200){
             const data = JSON.parse(e.target.responseText)
             const country = data.find((country) => country.alpha2Code === countryCode)
-            callback(undefined, country.name)
+            callback(undefined, country)
         } else if (e.target.readyState === 4){
             throw Error("Unable to fetch data", undefined);
         }

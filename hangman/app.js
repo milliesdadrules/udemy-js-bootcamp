@@ -23,11 +23,11 @@ getPuzzle("4",(error, puzzle) => {
 
 console.log("Do something Else")
 
-const countryCode = "GB"
+const countryCode = "US"
 getCountry(countryCode,(error, country) =>{
     if(error){
         console.log(`Error: ${error}`)
     } else {
-        console.log(country);
+        console.log(country.name);
     }
 })
