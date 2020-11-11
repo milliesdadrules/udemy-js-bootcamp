@@ -1,5 +1,4 @@
-
-const game = new Hangman("Harry Potter",5)
+const game = new Hangman("game Word",5)
 const wordEl = document.querySelector("#word")
 const statusEl = document.querySelector("#status")
 console.log(game.status)
@@ -13,21 +12,17 @@ window.addEventListener("keypress", (e) => {
     statusEl.textContent = game.statusMessage
 })
 
-getPuzzle("4",(error, puzzle) => {
-    if(error){
-        console.log(`Error: ${error}`);
-    } else {
-        console.log(puzzle);
-    }
+
+getPuzzle(6).then((data) => {
+    console.log(data)
+}, (err) => {
+    console.log(err);
 })
 
-console.log("Do something Else")
-
-const countryCode = "US"
-getCountry(countryCode,(error, country) =>{
-    if(error){
-        console.log(`Error: ${error}`)
-    } else {
-        console.log(country.name);
-    }
+const countryCode = "GB"
+getCountry(countryCode).then((country) => {
+    console.log(country.name);
+},(err) =>{
+    console.log(err);
 })
+
