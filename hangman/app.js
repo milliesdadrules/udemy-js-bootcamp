@@ -13,16 +13,27 @@ window.addEventListener("keypress", (e) => {
 })
 
 
-getPuzzle(6).then((data) => {
+getPuzzle(2).then((data) => {
     console.log(data)
-}, (err) => {
+}).catch((err) => {
     console.log(err);
 })
 
-const countryCode = "GB"
+const countryCode = "MX"
 getCountry(countryCode).then((country) => {
     console.log(country.name);
 },(err) =>{
     console.log(err);
 })
 
+// fetch("http://puzzle.mead.io/puzzle?wordCount=4",{}).then((reponse) => {
+//     if(reponse.status === 200){
+//         return reponse.json()
+//     } else {
+//         throw Error("Can get puzzle")
+//     }
+// }).then((data) => {
+//     console.log(data.puzzle);
+// }).catch((error) => {
+//     console.log(error);
+// })
