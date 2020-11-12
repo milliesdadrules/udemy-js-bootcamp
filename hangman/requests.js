@@ -15,11 +15,11 @@ const getCountry = (countryCode) => {
     return fetch("http://restcountries.eu/rest/v2/all",{}).then((response) =>{
         if(response.status === 200){
             return response.json()
+        } else {
+            throw new Error("Error :O")
         }
     }).then((data) => {
         return country = data.find((country) => country.alpha2Code === countryCode)
-    }).catch((err) => {
-        console.log(`Error: ${err}`);
     })
 }
 

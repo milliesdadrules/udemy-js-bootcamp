@@ -22,7 +22,7 @@ getPuzzle(2).then((data) => {
 const countryCode = "MX"
 getCountry(countryCode).then((country) => {
     console.log(country.name);
-},(err) =>{
+}).catch((err) =>{
     console.log(err);
 })
 
