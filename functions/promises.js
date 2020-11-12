@@ -30,11 +30,11 @@ const getDataPromise = (num) => new Promise((resolve, reject) => {
         console.log(err);
  })
  
-getDataPromise(10).then((data) => {
+getDataPromise("10").then((data) => {
     return getDataPromise(data)
 }).then((data)=> {
     console.log(`Chain data: ${data}`);
-}, (err) => {
+}).catch((err) => {
     console.log(err);
 })
 
