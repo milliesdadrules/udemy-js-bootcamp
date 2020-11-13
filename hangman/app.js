@@ -26,14 +26,12 @@ getCountry(countryCode).then((country) => {
     console.log(err);
 })
 
-// fetch("http://puzzle.mead.io/puzzle?wordCount=4",{}).then((reponse) => {
-//     if(reponse.status === 200){
-//         return reponse.json()
-//     } else {
-//         throw Error("Can get puzzle")
-//     }
-// }).then((data) => {
-//     console.log(data.puzzle);
-// }).catch((error) => {
-//     console.log(error);
-// })
+const info = getLocation().then((data) => {
+    return getCountry(data.country)
+}).then((country) => {
+    return country.name
+}).catch((err) =>{
+    console.log(err)
+})
+
+console.log(info);
