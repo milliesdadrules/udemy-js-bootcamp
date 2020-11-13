@@ -26,12 +26,10 @@ getCountry(countryCode).then((country) => {
     console.log(err);
 })
 
-const info = getLocation().then((data) => {
+getLocation().then((data) => {
     return getCountry(data.country)
 }).then((country) => {
     return country.name
 }).catch((err) =>{
     console.log(err)
 })
-
-console.log(info);
