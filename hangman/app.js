@@ -13,23 +13,29 @@ window.addEventListener("keypress", (e) => {
 })
 
 
-getPuzzle(2).then((data) => {
+getPuzzle(5).then((data) => {
     console.log(data)
 }).catch((err) => {
     console.log(err);
 })
 
-const countryCode = "MX"
-getCountry(countryCode).then((country) => {
+// const countryCode = "GB"
+// getCountry(countryCode).then((country) => {
+//     console.log(country.name);
+// }).catch((err) =>{
+//     console.log(err);
+// })
+
+getCurrentLocation().then((country) => {
     console.log(country.name);
-}).catch((err) =>{
-    console.log(err);
+}).catch((error) => {
+    console.log(`Error: ${error}`)
 })
 
-getLocation().then((data) => {
-    return getCountry(data.country)
-}).then((country) => {
-    return country.name
-}).catch((err) =>{
-    console.log(err)
-})
+// getLocation().then((data) => {
+//     return getCountry(data.country)
+// }).then((country) => {
+//     console.log(country.name, "getLocation()")
+// }).catch((err) =>{
+//     console.log(err)
+// })
