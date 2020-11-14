@@ -93,19 +93,19 @@ class Hangman {
 //     }
 // }
 
-// Hangman.prototype.getPuzzle = function(){
-//     let puzzle = ""
-//     this.word.forEach((letter) => {
+Hangman.prototype.getPuzzle = function(){
+    let puzzle = ""
+    this.word.forEach((letter) => {
 
-//         if(this.lettersGuessed.includes(letter) || letter === " "){
-//             puzzle += letter
-//         } else {
-//             puzzle += "*"
-//         }
+        if(this.lettersGuessed.includes(letter) || letter === " "){
+            puzzle += letter
+        } else {
+            puzzle += "*"
+        }
 
-//     })
-//     return puzzle
-// }
+    })
+    return puzzle
+}
 
 // Hangman.prototype.getMessage = function() {
 //     let message
