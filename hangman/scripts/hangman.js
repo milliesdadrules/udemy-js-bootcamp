@@ -48,11 +48,11 @@ class Hangman {
     get statusMessage(){
         let message
         if(this.status === "Playing"){
-            message = `Playing -> Guesses left: ${this.remainingGuesses}`
+            message = `Guesses left: ${this.remainingGuesses}`
         } else if (this.status === "Failed"){
-            message = `Failed -> Nice try! the word was "${this.answer}"`
+            message = `Nice try! the word was "${this.answer}"`
         } else {
-            message = `Finished -> Great work! You guessed the word.`
+            message = `Great work! You guessed the word.`
         }
         return message
     }
