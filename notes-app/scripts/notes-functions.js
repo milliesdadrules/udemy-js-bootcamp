@@ -28,28 +28,31 @@ const removeNote = (noteID) => {
 
 // Generate the DOM structure
 const generateNoteDOM = (note) => {
-    const showNote = document.createElement('div')
+    const noteEl = document.createElement('a')
     const textEl = document.createElement("a")
-    textEl.href = `/edit.html#${note.id}`    
- 
-    const button = document.createElement("button") 
-    // Setup the remove button
-    button.textContent = "x"
-    showNote.appendChild(button)
-    button.addEventListener("click", (e) => {
-        removeNote(note.id)
-        saveNotes(notes)
-        renderNotes(notes,filters)
-    })
+    const statusEl = document.createElement("p")
+
+
+
     // Setup the note title text
     if(note.title.length > 0){
         textEl.textContent = note.title
     }else {
         textEl.textContent = "Unnamed note"
     }
+    textEl.classList.add("list-item__title")
+    noteEl.appendChild(textEl)
 
-    showNote.appendChild(textEl)
-    return showNote
+    // Setup the link
+    noteEl.href = `/edit.html#${note.id}` 
+    noteEl.classList.add("list-item")
+
+    statusEl.textContent = getLastEdited(note.updatedAt)
+    statusEl.classList.add("list-item__subtitle")
+    noteEl.appendChild(statusEl)
+
+
+    return noteEl
 }
 
 // sort you notes by one of three ways
@@ -89,19 +92,28 @@ const sortNotes = (notes, sortBy) => {
 
 // function to filter notes array with includes from filters object.seatchText value
 const renderNotes = (notes, filters) => {
-
+    const notesEl = document.querySelector("#notes")
     notes = sortNotes(notes, filters.sortBy)
 
     const filteredNotes = notes.filter((note) => note.title.toLowerCase().includes(filters.searchText.toLowerCase()))
 
     // delete div #notes contents when funcation is called
-    document.querySelector("#notes").innerHTML = ""
+    notesEl.innerHTML = ""
 
-    // filter filteredNotes object and append to div #notes 
-    filteredNotes.forEach((note) => {
-        const showNote = generateNoteDOM(note)
-        document.querySelector("#notes").appendChild(showNote)
-    })
+    if(filteredNotes.length > 0){
+        // filter filteredNotes object and append to div #notes 
+        filteredNotes.forEach((note) => {
+            const showNote = generateNoteDOM(note)
+            notesEl.appendChild(showNote)
+        })
+    } else {
+        const emptyMessage = document.createElement("p")
+        emptyMessage.textContent = "No notes to display"
+        emptyMessage.classList.add("empty-message")
+        notesEl.appendChild(emptyMessage)
+    }
+
+
 }
 
 const getLastEdited = (note) => `Last updated ${moment(note.updatedAt).fromNow()}`
