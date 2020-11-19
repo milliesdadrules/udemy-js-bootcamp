@@ -6,7 +6,6 @@ const todos = getTodos()
 const todoFilter = {
     searchText: "",
     hideCompleted: false
-
 }
 
 renderTodos(todos,todoFilter)
