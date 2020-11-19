@@ -1,11 +1,33 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon">
+    <title>Todo Application</title></head>
+<body>
+    <div class="header">
+        <div class="container">
+            <h1 class="header__title">To-do App</h1>
+            <h2 class="header__subtitle">What to you need to do?</h2>
+        </div>
+    </div>
+    <div class="actions">
+        <div class="actions__container">
+            <input class="input" type="text" id="search-todos" placeholder="Filter Todos">
+            <label class="checkbox">
+                <input type="checkbox" id="hide-complete"> Hide completed
+            </label>
+        </div>
+    </div>
 
-<html>
-    <head>
-        <title>Boilerplate App</title>
-    </head>
-    <body>
-        <h1>Boilerplate</h1>
-        <script src="/scripts/bundle.js"></script>
-    </body>
+    <div class="container">
+        <div id="todo-summary"></div>
+        <div id="list-todos"></div>
+        <form id="todo-form">
+            <input class="input" type="text" placeholder="Enter new todo" name="newTodo">
+            <button class="button">Add Todo</button>
+        </form>
+    </div>
+    <script src="/scripts/bundle.js"></script>
+</body>
 </html>

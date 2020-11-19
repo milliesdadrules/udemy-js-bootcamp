@@ -1,11 +1,17 @@
-// Set up filters default object
+const todoFilter = {
+    searchText: "",
+    hideCompleted: false
+}
 
-// getFilters
-// Arguments: none
-// Return value: filters object
+const getFilters = () => todoFilter
 
-// setFilters
-// Arguments: updates object with optional searchText or hideCompleted
-// Return value: none
+const setFilters = (updates) => {
+    if (typeof updates.searchText === 'string'){
+        todoFilter.searchText = updates.searchText
+    }
+    if(typeof updates.hideCompleted === 'boolean'){
+        todoFilter.hideCompleted = updates.hideCompleted
+    }
+}
 
-// Make sure to set up the exports
+export { getFilters, setFilters }
