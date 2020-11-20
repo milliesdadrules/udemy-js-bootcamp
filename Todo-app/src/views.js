@@ -3,10 +3,10 @@ import { getFilters } from './filters'
 
 const renderTodos = () => {
     const todoList = document.querySelector("#list-todos")
-    const todoFilter = getFilters()
+    const {searchText, hideCompleted } = getFilters()
     const  filteredTodos = getTodos().filter((todo) => {
-        const searchTextMatch = todo.text.toLowerCase().includes(todoFilter.searchText.toLowerCase())
-        const hideCompletedMatch = !todoFilter.hideCompleted || !todo.completed
+        const searchTextMatch = todo.text.toLowerCase().includes(searchText.toLowerCase())
+        const hideCompletedMatch = !hideCompleted || !todo.completed
         return searchTextMatch && hideCompletedMatch
     })
 

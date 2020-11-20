@@ -5,12 +5,12 @@ const todoFilter = {
 
 const getFilters = () => todoFilter
 
-const setFilters = (updates) => {
-    if (typeof updates.searchText === 'string'){
-        todoFilter.searchText = updates.searchText
+const setFilters = ({ searchText, hideCompleted }) => {
+    if (typeof searchText === 'string'){
+        todoFilter.searchText = searchText
     }
-    if(typeof updates.hideCompleted === 'boolean'){
-        todoFilter.hideCompleted = updates.hideCompleted
+    if(typeof hideCompleted === 'boolean'){
+        todoFilter.hideCompleted = hideCompleted
     }
 }
 
